@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-addemp',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddempComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myapi:ApiService) { }
 
   empcode=""
   name=""
@@ -18,6 +19,8 @@ export class AddempComponent implements OnInit {
   phone=""
   company=""
   dateofjoining=""
+
+  status:boolean=false
 
   readValues=()=>{
     let data={
@@ -32,6 +35,24 @@ export class AddempComponent implements OnInit {
       "dateofjoining":this.dateofjoining
     }
     console.log(data)
+    this.myapi.addEmp(data).subscribe(
+      (resp)=>{
+        console.log(resp)
+        
+      }
+    )
+
+    this.empcode=""
+    this.name=""
+    this.designation=""
+    this.salary=""
+    this.dob=""
+    this.email=""
+    this.phone=""
+    this.company=""
+    this.dateofjoining=""
+
+    this.status=true
   }
 
   ngOnInit(): void {
