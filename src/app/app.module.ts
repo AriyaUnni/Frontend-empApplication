@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AddempComponent } from './addemp/addemp.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ViewempComponent } from './viewemp/viewemp.component';
 
 const appRoutes:Routes=[
   {
@@ -18,7 +19,8 @@ const appRoutes:Routes=[
   declarations: [
     AppComponent,
     NavbarComponent,
-    AddempComponent
+    AddempComponent,
+    ViewempComponent
   ],
   imports: [
     BrowserModule,
